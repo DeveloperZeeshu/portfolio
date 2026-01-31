@@ -4,12 +4,12 @@ export function TechStackCard() {
     return (
         <div className="flex flex-wrap gap-3">
             {[
-                "/icons/javascript.svg",
-                "/icons/python.svg",
+                "/icons/JavaScript.svg",
+                "/icons/Python.svg",
                 "/icons/C++.svg",
-                "/icons/express.svg",
+                "/icons/Express.svg",
                 "/icons/Node.js.svg",
-                "/icons/mongodb.svg",
+                "/icons/MongoDB.svg",
                 "/icons/MySQL.svg",
                 "/icons/Next.js.svg",
                 "/icons/React.svg",

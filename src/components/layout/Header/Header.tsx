@@ -9,7 +9,7 @@ export default function Header({
   return (
     <header className="sticky top-4 z-50 mx-auto max-w-7xl px-6">
       <div className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl">
-        <div className="flex items-center justify-between px-5 py-4">
+        <div className="flex items-center justify-between px-5 h-15">
           {/* Left: Menu (mobile) + Brand */}
           <div className="flex items-center gap-3">
             <button
