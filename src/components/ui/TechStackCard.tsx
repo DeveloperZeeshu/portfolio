@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function TechStackCard() {
     return (
-        <div className="flex flex-wrap gap-3">
+        <div className="grid grid-cols-6 md:grid-cols-14 lg:grid-cols-14 gap-3">
             {[
                 "/icons/JavaScript.svg",
                 "/icons/Python.svg",
@@ -15,7 +15,7 @@ export function TechStackCard() {
                 "/icons/React.svg",
                 "/icons/VSCode.svg",
                 "/icons/Git.svg",
-                "/icons/Github.svg",
+                "/icons/GitHub.svg",
                 "/icons/HTML5.svg",
                 "/icons/CSS3.svg"
             ].map((src) => (

@@ -17,10 +17,9 @@ export default function Sidebar({
           className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm lg:hidden"
         />
       )}
-
       <aside
         className={`
-    fixed z-50 top-4 bottom-4 left-0 w-67.5
+    fixed z-50 top-0 bottom-0 left-0 w-77.5
     rounded-r-2xl border border-white/10 bg-white/10 backdrop-blur-xl
     px-4 py-6 transition-transform duration-300
     lg:hidden
