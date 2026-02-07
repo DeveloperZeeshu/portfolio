@@ -1,23 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/src/components/layout/Header/Header";
 import AppShell from "@/src/components/AppShell";
+import { getMetaData } from "./metadata/metadata";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Jeesan Abbas",
-  description: "Portfolio of Jeesan Abbas",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return getMetaData()
+}
 
 export default function RootLayout({
   children,
