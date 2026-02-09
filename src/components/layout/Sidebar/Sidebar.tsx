@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { X, Home, User, FolderGit2, Mail } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 export default function Sidebar({
   open,
@@ -8,6 +10,9 @@ export default function Sidebar({
   open: boolean;
   onClose: () => void;
 }) {
+
+  const pathname = usePathname()
+
   return (
     <>
       {/* Overlay */}
@@ -62,7 +67,12 @@ export default function Sidebar({
               key={label}
               href={href}
               onClick={onClose}
-              className="flex items-center gap-3 rounded-xl px-3 py-2 text-neutral-400 hover:text-white hover:bg-white/10 transition"
+              className={cn(
+                "flex items-center gap-3 rounded-xl px-3 py-2 text-neutral-400 hover:text-white hover:bg-white/10 transition",
+                pathname === href
+                  ? "bg-white/10"
+                  : ""
+              )}
             >
               <Icon className="w-4 h-4" />
               <span className="text-sm font-medium">{label}</span>
@@ -71,11 +81,14 @@ export default function Sidebar({
         </nav>
 
         {/* CTA */}
-        <div className="mt-6 px-2">
+        <div className="mt-6">
           <Link
             href="/contact"
             onClick={onClose}
-            className="flex items-center justify-center rounded-xl bg-white text-black py-2 text-sm font-semibold hover:bg-neutral-200 transition"
+            className={cn(
+              "flex items-center justify-center rounded-xl bg-white",
+              "text-black py-2 text-sm font-semibold hover:bg-neutral-200 transition",
+            )}
           >
             Let’s work together
           </Link>

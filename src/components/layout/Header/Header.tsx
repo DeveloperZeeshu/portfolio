@@ -1,11 +1,31 @@
+import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const navItems = [
+  {
+    name: 'Home',
+    slug: '/'
+  },
+  {
+    name: 'About',
+    slug: '/about'
+  },
+  {
+    name: 'Work',
+    slug: '/projects'
+  }
+]
 
 export default function Header({
   onMenuClick,
 }: {
   onMenuClick?: () => void;
 }) {
+
+  const pathname = usePathname()
+
   return (
     <header className="sticky top-4 z-50 mx-auto max-w-7xl px-6">
       <div className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl">
@@ -29,13 +49,24 @@ export default function Header({
           </div>
 
           {/* Right: Navigation */}
-          <nav className="hidden lg:flex items-center gap-6 text-sm text-neutral-300">
-            <Link href="/about" className="hover:text-white transition">
-              About
-            </Link>
-            <Link href="/projects" className="hover:text-white transition">
-              Work
-            </Link>
+          <nav className="hidden lg:flex items-center gap-3 text-sm text-neutral-300">
+            {
+              navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.slug}
+                  className={cn(
+                    "transition-colors duration-300",
+                    "hover:text-white transition",
+                    "px-3.5 py-1.5 rounded-xl",
+                    pathname === item.slug
+                      ? "text-foreground bg-white/10"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}>
+                  {item.name} 
+                </Link>
+              ))
+            }
 
             {/* Primary CTA */}
             <Link
